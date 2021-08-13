@@ -1,5 +1,5 @@
 package com.springrest.springrest.entities;
 
-public class Teacher {
-
+public class Teacher extends User{
+	
 }
