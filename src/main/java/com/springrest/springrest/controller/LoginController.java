@@ -17,10 +17,12 @@ public class LoginController {
 	
 	@Autowired
 	private IUserServices userService;
+	public static User user;
 	
 	@PostMapping("/login")
 	public User login(@RequestBody User user) {
-		return this.userService.getUser(user.getUsername(), user.getPassword());
+		user = this.userService.getUser(user.getUsername(), user.getPassword());
+		return user;
 	}
 	
 	@PostMapping("/register")

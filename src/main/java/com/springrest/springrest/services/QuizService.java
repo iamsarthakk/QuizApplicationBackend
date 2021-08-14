@@ -11,7 +11,7 @@ import com.springrest.springrest.entities.Quiz;
 @Service
 public class QuizService implements IQuizServices {
 
-	List<Quiz> quizes = new ArrayList<Quiz>();
+	public static List<Quiz> quizes = new ArrayList<Quiz>();
 	@Override
 	public List<Quiz> getQuizes() {
 		return quizes;
