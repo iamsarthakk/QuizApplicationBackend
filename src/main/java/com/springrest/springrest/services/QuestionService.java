@@ -1,5 +1,6 @@
 package com.springrest.springrest.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.springrest.springrest.entities.Question;
@@ -7,9 +8,10 @@ import com.springrest.springrest.entities.Quiz;
 
 public class QuestionService implements IQuestionService {
 
+	QuizService quizS = new QuizService();
 	@Override
 	public List<Question> getQuestions(int id) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

@@ -1,21 +1,68 @@
 package com.springrest.springrest.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import com.springrest.springrest.entities.Question;
 import com.springrest.springrest.entities.Quiz;
 
+@Service
 public class QuizService implements IQuizServices {
 
+	List<Quiz> quizes = new ArrayList<Quiz>();
 	@Override
 	public List<Quiz> getQuizes() {
-		// TODO Auto-generated method stub
-		return null;
+		return quizes;
 	}
 
 	@Override
 	public Quiz addQuiz(String title, String description) {
-		// TODO Auto-generated method stub
-		return null;
+		Quiz quiz = new Quiz(title, description);
+		quizes.add(quiz);
+		return quiz;
+	}
+
+	@Override
+	public void deleteQuiz(int id) {
+		quizes.remove(id);
+	}
+
+	@Override
+	public void updateQuiz(Quiz quiz) {
+		int id = quiz.getId();
+		quizes.get(id).setTitle(quiz.getTitle());
+		quizes.get(id).setDescription(quiz.getDescription());
+	}
+
+	@Override
+	public List<Question> getQuestions(int id) {
+		return quizes.get(id).getQuestions();
+	}
+
+	@Override
+	public void addQuestion(Question ques) {
+		int quizID = ques.getQuiz().getId();
+		quizes.get(quizID).getQuestions().add(ques);
+		
+	}
+
+	@Override
+	public void deleteQues(int id, int quizID) {
+		quizes.get(quizID).getQuestions().remove(id);
+	}
+
+	@Override
+	public void updateQues(Question ques) {
+		int quizID = ques.getQuiz().getId();
+		Quiz quiz = quizes.get(quizID);
+		quiz.getQuestions().get(ques.getId()).setQuestion(ques.getQuestion());
+		quiz.getQuestions().get(ques.getId()).setAnswer(ques.getAnswer());
+		quiz.getQuestions().get(ques.getId()).setOptionA(ques.getOptionA());
+		quiz.getQuestions().get(ques.getId()).setOptionB(ques.getOptionB());
+		quiz.getQuestions().get(ques.getId()).setOptionC(ques.getOptionC());
+		quiz.getQuestions().get(ques.getId()).setOptionD(ques.getOptionD());
 	}
 
 }

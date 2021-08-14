@@ -5,6 +5,7 @@ public class Question {
     private String question;
     private String answer;
     private int marks;
+    private Quiz quiz;
     
     private String optionA;
     private String optionB;
@@ -65,5 +66,5 @@ public class Question {
 	public void setQuiz(Quiz quiz) {
 		this.quiz = quiz;
 	}
-	private Quiz quiz;
+	
 }

@@ -8,6 +8,11 @@ public class Quiz {
     private String description;
     private List<Question> questions;
     
+	public Quiz(String title, String description) {
+		super();
+		this.title = title;
+		this.description = description;
+	}
 	public int getId() {
 		return id;
 	}
